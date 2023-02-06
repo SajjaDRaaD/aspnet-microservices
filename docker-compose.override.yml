@@ -68,3 +68,12 @@ services:
       - basket.db
     ports:
       - "9001:80"
+
+  discount.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:Default=Server=discount.db;Port=5432;Database=DiscountDb;User Id=admin;Password=admin"
+    depends_on:
+      - discount.db
+    ports:
+      - "9002:80"
